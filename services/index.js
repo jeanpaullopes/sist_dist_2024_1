@@ -1,6 +1,6 @@
-const services = {
+var services = {
     users: require('./userServices')
-}
+};
 //,
 //    messages: require('./messageServices')
 //}

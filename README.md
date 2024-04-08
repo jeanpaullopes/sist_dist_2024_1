@@ -39,4 +39,13 @@ alterar o package.json
 Para quem clonar o repo, entrar na pasta myAPI e rodar
 
     npm install
+
+
+Criando uma imagem Docker
+
+1. crie um arquivo com o nome Dockerfile na pasta raiz do projeto
+2. crie o arquivo .dockerignore
+3. crie o arquivo docker-compose.yml
+
+
     
