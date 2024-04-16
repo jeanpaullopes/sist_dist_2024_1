@@ -13,10 +13,10 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
  
-  if (req.headers['api_key'] != 'abc123') {
-    res.status(401).send('Acesso negado');
-    return;
-  }
+  //if (req.headers['api_key'] != 'abc123') {
+  //  res.status(401).send('Acesso negado');
+  //  return;
+  //}
   let obj = req.body;
   
   let ret = services.users.addUser(obj);
@@ -30,10 +30,10 @@ router.post('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  if (req.headers['api_key'] != 'abc123') {
-    res.status(401).send('Acesso negado');
-    return;
-  }
+  //if (req.headers['api_key'] != 'abc123') {
+  //  res.status(401).send('Acesso negado');
+  //  return;
+  //}
   let obj = services.users.getUser(parseInt(req.params.id));
   //res.set('Content-Type', 'application/json')
   //res.status(400).send('Bad Request')
