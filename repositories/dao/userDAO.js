@@ -1,5 +1,5 @@
+
 const userDAO = {
-    conection: null,
     insertUser(user) {
         userConnection.insert(user);
     },
@@ -17,8 +17,10 @@ const userDAO = {
 
     },
     setConnection(userConnection){
+        console.log('setando conexao');
         this.conection = userConnection;
-    }
+    },
+
 }
 
-export default userDAO;
+module.export = userDAO;

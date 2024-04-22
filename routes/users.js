@@ -44,5 +44,10 @@ router.get('/:id', function(req, res, next) {
     res.send(obj)
   }
 });
+router.get('/teste', function(req, res, next) {
+  rfes.send('aqui no teste')
+  console.log('teste');
+  res.send(services.users.teste());
+});
 
 module.exports = router;

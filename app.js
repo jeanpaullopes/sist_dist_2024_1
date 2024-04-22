@@ -18,5 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/messages', messagesRouter);
+app.use('/mongo', require('./routes/mongo'));
 
 module.exports = app;

@@ -1,5 +1,6 @@
 var repoUsers = require('../repositories/usersRepo');
-import { userDAO} from '../repositories/dao/userDAO'; 
+let  userDAO  = require('../repositories/dao/userDAO'); 
+const {getFilmes} = require( '../repositories/dao/databaseDAO_mongo');
 const userServices = {
     getAllUsers() {
         return repoUsers.getUsers();
@@ -14,6 +15,10 @@ const userServices = {
         userDAO.insertUser(user);
         return {success: false, status: 201, message:'', object: repoUsers.addUser(user)};
     
+    },
+    teste: () => {
+        console.log('no teste() userServices');
+        return getFilmes();
     }
 }
 
