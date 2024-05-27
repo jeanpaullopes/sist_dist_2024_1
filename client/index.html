@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<style>
+    .invisible {
+        display: none;
+    }
+    </style>
+<body>
+    <h1>Home</h1>
+    <p>Chat</p>
+    <div id="login">
+    <input type="text" id="nome" placeholder="Informe seu nome">
+        <button id="entrar" onclick="entrar()">Entrar</button>
+    </div>
+    <div id="chat" class="invisible">
+    <input type="text" id="message" placeholder="Entre a mensagem">
+    <button id="send" onclick="enviar()">Enviar</button>
+    </div>
+    <div id="mensagens"></div>
+    <script>
+const socket = new WebSocket('ws://localhost:3000/ws/')
+let nomeUser = '';
+socket.addEventListener('open', () => {
+
+    //socket.send('iloveyou')
+})
+socket.addEventListener('close', () => {
+    alert('Connection closed')
+})
+socket.addEventListener('message', (event) => {
+    const p = document.getElementById('mensagens');
+   addMensagem(event.data);
+})
+
+function enviar() {
+    const message = document.getElementById('message').value;
+    const obj = {
+        nome: nomeUser,
+        mensagem: message,
+        action: 'mensagem'
+    }
+    console.log(obj);
+    socket.send(JSON.stringify(obj));
+    document.getElementById('message').value = '';
+}
+
+function entrar() {
+    const nome = document.getElementById('nome').value;
+    console.log(nomeUser);
+    nomeUser = nome;
+    console.log(nomeUser);
+    socket.send(JSON.stringify({nome: nome, action:'entrar'}));
+    document.getElementById('login').classList.add('invisible');
+    document.getElementById('chat').classList.remove('invisible');
+}
+addMensagem = (msg) => {
+    const div = document.getElementById('mensagens');
+    let p = document.createElement('p');
+    p.innerHTML = msg;
+    div.appendChild(p);
+}
+
+    </script>
+</body>
+</html>

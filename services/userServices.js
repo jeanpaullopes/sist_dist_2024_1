@@ -1,6 +1,7 @@
 var repoUsers = require('../repositories/usersRepo');
 let  userDAO  = require('../repositories/dao/userDAO'); 
-const {getFilmes} = require( '../repositories/dao/databaseDAO_mongo');
+const {getFilmes, getUsers} = require( '../repositories/dao/databaseDAO_mongo');
+
 const userServices = {
     getAllUsers() {
         return repoUsers.getUsers();
@@ -19,6 +20,9 @@ const userServices = {
     teste: () => {
         console.log('no teste() userServices');
         return getFilmes();
+        //return getUsers();
+
+
     }
 }
 

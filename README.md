@@ -41,6 +41,11 @@ Para quem clonar o repo, entrar na pasta myAPI e rodar
     npm install
 
 
+Para usar WebSocket
+
+    npm install websocket-express ws @types/ws @types/express
+
+
 Criando uma imagem Docker
 
 1. crie um arquivo com o nome Dockerfile na pasta raiz do projeto
