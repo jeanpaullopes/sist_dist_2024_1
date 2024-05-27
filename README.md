@@ -43,7 +43,7 @@ Para quem clonar o repo, entrar na pasta myAPI e rodar
 
 Para usar WebSocket
 
-    npm install websocket-express ws @types/ws @types/express
+    npm install websocket-express ws 
 
 
 Criando uma imagem Docker
